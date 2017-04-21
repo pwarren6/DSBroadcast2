@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mobileappscompany.training.dsbroadcast2.MainActivity">
+
+    <EditText
+        android:id="@+id/editStatic2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_constraintTop_creator="1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editDynamic2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/editStatic2"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/editStatic2"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="93dp" />
+
+    <Button
+        android:id="@+id/buttonStatic2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Static Broadcast"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        android:layout_marginEnd="33dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="59dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="210dp" />
+
+    <Button
+        android:id="@+id/buttonDynamic2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dynamic Broadcast"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/buttonStatic2"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginEnd="-50dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStatic2" />
+
+</android.support.constraint.ConstraintLayout>
