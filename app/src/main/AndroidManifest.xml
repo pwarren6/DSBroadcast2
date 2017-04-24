@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".MyReceiver2"
+            android:name=".TxtReceiver"
             android:enabled="true"
             android:exported="true">
             <action android:name="com.mobileappscompany.staticbroadcast2"/>

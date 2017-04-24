@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    BroadcastReceiver mR, mR2;
+    BroadcastReceiver dynaTxtReceiver;
     Button sBroadcast2, dBroadcast2;
     EditText eStatic2, eDynamic2;
 
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             eStatic2.setText(obtained.getString("messageStatic"));
         }
 
-        mR2 = new BroadcastReceiver() {
+        dynaTxtReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Toast.makeText(context, intent.getStringExtra("messageDynamic2"), Toast.LENGTH_SHORT).show();
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         //registerReceiver(mR2, new IntentFilter(DYNAMIC2));
         eStatic2.setText(txtStatic);
-        unregisterReceiver(mR2);
+        unregisterReceiver(dynaTxtReceiver);
 
 
     }
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         eStatic2.setText(txtStatic);
-        unregisterReceiver(mR2);
+        //unregisterReceiver(mR2);
     }
 
     @Override
@@ -98,24 +98,24 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        registerReceiver(mR2, new IntentFilter(STATIC2));
+        registerReceiver(dynaTxtReceiver, new IntentFilter(STATIC2));
     }
 
     @Override
     protected void onStop() {
         //unregisterReceiver(mR2);
-        mR2 = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                txtStatic = intent.getStringExtra("messageStatic");
-                Toast.makeText(context, intent.getStringExtra("messageStatic"), Toast.LENGTH_SHORT).show();
-                eStatic2.setText(intent.getStringExtra("messageStatic"));
-                eStatic2.setText(intent.getStringExtra("messageStatic2"));
-                eDynamic2.setText(intent.getStringExtra("messageDynamic"));
-                eDynamic2.setText(intent.getStringExtra("messageDynamic2"));
-            }
-        };
-        registerReceiver(mR2, new IntentFilter(DYNAMIC2));
+//        mR2 = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(Context context, Intent intent) {
+//                txtStatic = intent.getStringExtra("messageStatic");
+//                Toast.makeText(context, intent.getStringExtra("messageStatic"), Toast.LENGTH_SHORT).show();
+//                eStatic2.setText(intent.getStringExtra("messageStatic"));
+//                eStatic2.setText(intent.getStringExtra("messageStatic2"));
+//                eDynamic2.setText(intent.getStringExtra("messageDynamic"));
+//                eDynamic2.setText(intent.getStringExtra("messageDynamic2"));
+//            }
+//        };
+//        registerReceiver(mR2, new IntentFilter(DYNAMIC2));
         super.onStop();
 
     }
